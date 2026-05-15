@@ -1,0 +1,18 @@
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1024px;
+$breakpoint-laptop: 1280px;
+$breakpoint-desktop: 1440px;
+
+:root {
+  --color-bg: #0f152b;
+  --color-text: #fff;
+
+  --font-family: 'Rubik', sans-serif;
+
+  --container-max: 1440px;
+  --container-padding: 20px;
+  --container-padding-mob: 16px;
+
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+}

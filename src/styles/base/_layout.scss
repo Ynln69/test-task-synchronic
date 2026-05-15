@@ -1,0 +1,29 @@
+@use '../abstracts/mixins' as *;
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+
+  @include mobile {
+    max-width: 375px;
+    padding-inline: var(--container-padding-mob);
+  }
+}
+
+.page {
+  padding-bottom: 40px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
