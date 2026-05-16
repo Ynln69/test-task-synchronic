@@ -13,7 +13,7 @@
   &__backdrop {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: var(--color-backdrop);
     backdrop-filter: blur(2px);
   }
 
@@ -136,7 +136,7 @@
     transition: border-color var(--transition-fast);
 
     &::placeholder {
-      color: #9fa1aa;
+      color: var(--color-text-muted);
       font-weight: 400;
       font-size: 14px;
       line-height: 143%;

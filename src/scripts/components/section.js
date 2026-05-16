@@ -46,16 +46,14 @@ export function renderSection({ id, title, showTabs, modes, mobileGrid }) {
 
 function renderTabs() {
   return `
-    <ul class="tabs" role="tablist">
+    <ul class="tabs">
       ${MODES.map(
         (mode, index) => `
         <li>
           <button
             type="button"
-            role="tab"
             class="tabs__btn ${index === 0 ? "is-active" : ""}"
             data-mode="${mode}"
-            aria-selected="${index === 0}"
           >${TAB_LABELS[mode]}</button>
         </li>
       `,
@@ -66,7 +64,7 @@ function renderTabs() {
 
 function renderRow(mode, games) {
   return `
-    <ul class="section__row" data-row="${mode}" role="tabpanel">
+    <ul class="section__row" data-row="${mode}">
       ${games.map(renderCard).join("")}
     </ul>
   `;
@@ -75,30 +73,32 @@ function renderRow(mode, games) {
 export function initSections() {
   const sections = document.querySelectorAll(".section");
 
+  const navRefreshers = [];
+
   sections.forEach((section) => {
-    setupNav(section);
+    const refresh = setupNav(section);
+    if (refresh) navRefreshers.push(refresh);
     setupShowAll(section);
   });
 
-  setupGlobalTabs(sections);
+  setupGlobalTabs(sections, navRefreshers);
 }
 
-function setupGlobalTabs(sections) {
+function setupGlobalTabs(sections, navRefreshers) {
   const tabButtons = document.querySelectorAll(".tabs__btn[data-mode]");
   if (!tabButtons.length) return;
 
   tabButtons.forEach((tabButton) => {
     tabButton.addEventListener("click", () => {
       applyMode(sections, tabButton.dataset.mode);
+      navRefreshers.forEach((refresh) => refresh());
     });
   });
 }
 
 function applyMode(sections, mode) {
   document.querySelectorAll(".tabs__btn[data-mode]").forEach((tabButton) => {
-    const isActive = tabButton.dataset.mode === mode;
-    tabButton.classList.toggle("is-active", isActive);
-    tabButton.setAttribute("aria-selected", String(isActive));
+    tabButton.classList.toggle("is-active", tabButton.dataset.mode === mode);
   });
 
   sections.forEach((section) => {
@@ -117,7 +117,6 @@ function setupShowAll(section) {
 
   showAllButton.addEventListener("click", () => {
     const isExpanded = section.classList.toggle("section--expanded");
-    showAllButton.setAttribute("aria-expanded", String(isExpanded));
     showAllButton.textContent = isExpanded ? "Collapse" : "Show all";
   });
 }
@@ -166,16 +165,12 @@ function setupNav(section) {
   });
   window.addEventListener("resize", refreshNavState);
 
-  const observer = new MutationObserver(() =>
-    requestAnimationFrame(refreshNavState),
-  );
-  observer.observe(section, { attributes: true, attributeFilter: ["class"] });
+  refreshNavState();
 
-  requestAnimationFrame(refreshNavState);
+  return refreshNavState;
 }
 
 function setDisabled(button, isDisabled) {
   button.disabled = isDisabled;
   button.classList.toggle("is-disabled", isDisabled);
-  button.setAttribute("aria-disabled", String(isDisabled));
 }

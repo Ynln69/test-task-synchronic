@@ -1,26 +1,25 @@
 import { renderCard } from "./card.js";
 
 export function initModal(gamesData) {
+  if (document.querySelector(".modal")) return;
+
   const searchPool = buildSearchPool(gamesData);
 
   const modal = document.createElement("div");
   modal.className = "modal";
   modal.setAttribute("role", "dialog");
-  modal.setAttribute("aria-modal", "true");
-  modal.setAttribute("aria-labelledby", "modal-title");
-  modal.setAttribute("aria-hidden", "true");
   modal.innerHTML = `
     <div class="modal__backdrop" data-action="close-search"></div>
-    <div class="modal__panel" role="document">
+    <div class="modal__panel">
       <header class="modal__header">
-        <h2 class="modal__title" id="modal-title">Search</h2>
+        <h2 class="modal__title">Search</h2>
         <button type="button" class="modal__close" data-action="close-search" aria-label="Close">
           <img src="images/close.svg" alt="" aria-hidden="true" width="24" height="24" />
         </button>
       </header>
 
-      <p class="modal__hint">Enter the game titel in the search below</p>
-      <label class="modal__label" for="modal-search">helper label</label>
+      <p class="modal__hint">Enter the game title in the search below</p>
+      <label class="modal__label" for="modal-search">Game title</label>
 
       <div class="modal__input-wrap">
         <img class="modal__input-icon" src="images/search.svg" alt="" aria-hidden="true" width="16" height="16" />
@@ -50,25 +49,17 @@ export function initModal(gamesData) {
   const emptyMessage = modal.querySelector("[data-empty]");
   const clearButton = modal.querySelector('[data-action="clear-search"]');
 
-  let triggerElement = null;
-
   function openModal() {
-    triggerElement = document.activeElement;
     modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
-    setTimeout(() => searchInput.focus(), 0);
+    searchInput.focus();
   }
 
   function closeModal() {
     modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
     searchInput.value = "";
     filterResults("");
-    if (triggerElement && typeof triggerElement.focus === "function") {
-      triggerElement.focus();
-    }
   }
 
   function filterResults(query) {

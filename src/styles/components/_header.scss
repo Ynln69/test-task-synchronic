@@ -28,7 +28,7 @@
     transition: background-color var(--transition-fast);
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.08);
+      background-color: var(--color-hover-overlay);
     }
 
     @include focus-ring;
