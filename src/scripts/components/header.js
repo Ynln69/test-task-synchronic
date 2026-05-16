@@ -2,7 +2,7 @@ export function renderHeader() {
   return `
     <header class="header">
       <div class="container header__inner">
-        <a href="#" class="header__logo">Logo</a>
+        <a href="/" class="header__logo">Logo</a>
         <button
           type="button"
           class="header__search-btn"

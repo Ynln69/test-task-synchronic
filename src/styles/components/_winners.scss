@@ -70,7 +70,7 @@
 
   &__title {
     font-size: 12px;
-    color: var(--color-warning);
+    color: var(--color-accent);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -79,12 +79,12 @@
 
   &__amount {
     font-size: 12px;
-    color: var(--color-warning);
+    color: #289211;
     font-weight: 700;
   }
 
   &__user {
     font-size: 12px;
-    color: var(--color-text-muted);
+    color: var(--color-text);
   }
 }

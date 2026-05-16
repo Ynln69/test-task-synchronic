@@ -1,4 +1,4 @@
-@use '../abstracts/mixins' as *;
+@use "../abstracts/mixins" as *;
 
 .header {
   background-color: var(--color-header);
@@ -25,14 +25,12 @@
     justify-content: center;
     width: 36px;
     height: 36px;
-    border-radius: 8px;
-    color: var(--color-text);
-    background: transparent;
-    border: 0;
-    cursor: pointer;
     transition: background-color var(--transition-fast);
 
-    &:hover { background-color: rgba(255, 255, 255, 0.08); }
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
     @include focus-ring;
   }
 }

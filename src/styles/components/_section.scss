@@ -26,6 +26,7 @@
   &__nav {
     width: 24px;
     height: 24px;
+    padding: 4px;
     border-radius: var(--radius-sm);
     background-color: var(--color-card-bg);
     color: var(--color-text);
@@ -56,7 +57,7 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 133%;
-    padding: 6px 8px;
+    padding: 4px 8px;
     border-radius: var(--radius-sm);
     border: 0;
     cursor: pointer;
@@ -99,7 +100,7 @@
     }
 
     @include tablet {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 248px);
     }
 
     @include laptop-sm {
