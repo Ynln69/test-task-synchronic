@@ -4,6 +4,7 @@ import { renderHeader } from "./components/header.js";
 import { renderHero } from "./components/hero.js";
 import { renderWinners } from "./components/winners.js";
 import { renderSection, initSections } from "./components/section.js";
+import { initModal } from "./components/modal.js";
 
 const gameById = Object.fromEntries(
   gamesData.games.map((game) => [game.id, game]),
@@ -52,3 +53,12 @@ root.innerHTML = `
 `;
 
 initSections();
+
+const modalGames = gamesData.modal
+  .map((id, index) => {
+    const game = gameById[id];
+    return game ? { ...game, id: `${id}-${index}` } : null;
+  })
+  .filter(Boolean);
+
+initModal({ all: modalGames });

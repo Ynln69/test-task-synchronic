@@ -1,0 +1,199 @@
+@use "../abstracts/mixins" as *;
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+
+  &.is-open {
+    display: block;
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(2px);
+  }
+
+  &__panel {
+    position: relative;
+    width: min(800px, calc(100% - 24px * 2));
+    max-height: calc(100vh - 48px);
+    margin: 32px auto;
+    background-color: var(--color-bg);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include mobile {
+      padding: 16px;
+      width: 100%;
+      max-width: var(--hero-max-width-mob);
+      margin-inline: auto;
+      max-height: 100vh;
+      margin-block: 0;
+      border-radius: 0;
+    }
+  }
+
+  &__header {
+    position: sticky;
+    top: -24px;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--color-card-bg);
+    margin: -24px -24px 24px;
+    padding: 16px 40px;
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
+
+    @include mobile {
+      top: -16px;
+      margin: -16px -16px 16px;
+      padding: 14px 16px;
+      border-radius: 0;
+    }
+  }
+
+  &__title {
+    grid-column: 2;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+  }
+
+  &__close {
+    grid-column: 3;
+    justify-self: end;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    @include focus-ring;
+  }
+
+  &__hint {
+    margin-bottom: 8px;
+    text-align: center;
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+
+    @include mobile {
+      text-align: left;
+    }
+  }
+
+  &__label {
+    display: block;
+    padding-left: 12px;
+    color: var(--color-text-muted);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 133%;
+  }
+
+  &__input-wrap {
+    position: relative;
+    margin-bottom: 24px;
+  }
+
+  &__input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  &__input {
+    width: 100%;
+    height: 40px;
+    padding: 14px 42px;
+    background-color: var(--color-card-bg);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-size: 14px;
+    line-height: 143%;
+    transition: border-color var(--transition-fast);
+
+    &::placeholder {
+      color: var(--color-text-muted);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 143%;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-accent);
+    }
+  }
+
+  &__clear {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__results-title {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: var(--hero-max-width-mob);
+      margin-inline: auto;
+    }
+
+    .card {
+      width: 100%;
+    }
+  }
+
+  &__empty {
+    text-align: center;
+    color: var(--color-text-muted);
+    padding: 24px 0;
+  }
+}
