@@ -1,0 +1,12 @@
+{
+  "winners": [
+    { "id": "w1", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" },
+    { "id": "w2", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" },
+    { "id": "w3", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" },
+    { "id": "w4", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" },
+    { "id": "w5", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" },
+    { "id": "w6", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" },
+    { "id": "w7", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" },
+    { "id": "w8", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" }
+  ]
+}
