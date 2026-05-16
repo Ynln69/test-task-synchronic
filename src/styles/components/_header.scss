@@ -1,0 +1,38 @@
+@use '../abstracts/mixins' as *;
+
+.header {
+  background-color: var(--color-header);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  &__logo {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--color-text);
+  }
+
+  &__search-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    color: var(--color-text);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+
+    &:hover { background-color: rgba(255, 255, 255, 0.08); }
+    @include focus-ring;
+  }
+}
