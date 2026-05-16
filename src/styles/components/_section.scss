@@ -1,0 +1,221 @@
+@use "../abstracts/mixins" as *;
+
+.section {
+  margin-bottom: 16px;
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__head-left,
+  &__head-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__title {
+    font-size: 20px;
+    color: var(--color-text);
+  }
+
+  &__nav {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-card-bg);
+    color: var(--color-text);
+    border: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-fast);
+
+    @include focus-ring;
+
+    &:disabled,
+    &.is-disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__show-all {
+    color: var(--color-text);
+    background-color: var(--color-card-bg);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 133%;
+    padding: 6px 8px;
+    border-radius: var(--radius-sm);
+    border: 0;
+    cursor: pointer;
+
+    @include focus-ring;
+  }
+
+  &__rows {
+    position: relative;
+  }
+
+  &--mode-recent .section__row[data-row="recent"] {
+    display: flex;
+  }
+  &--mode-favourite .section__row[data-row="favourite"] {
+    display: flex;
+  }
+
+  &--expanded .section__nav {
+    display: none;
+  }
+
+  &--expanded.section--mode-recent .section__row[data-row="recent"],
+  &--expanded.section--mode-favourite .section__row[data-row="favourite"] {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
+    grid-auto-columns: auto;
+    justify-content: start;
+    gap: 8px;
+    overflow: visible;
+    scroll-snap-type: none;
+    margin: 0;
+
+    grid-template-columns: repeat(auto-fill, minmax(0, 1fr));
+
+    > .card {
+      width: 100%;
+      scroll-snap-align: none;
+    }
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include laptop-sm {
+      grid-template-columns: repeat(3, var(--card-width));
+    }
+
+    @include laptop {
+      grid-template-columns: repeat(4, var(--card-width));
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0 0 8px;
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(5, var(--card-width));
+
+      > .card {
+        width: var(--card-width);
+      }
+    }
+  }
+
+  @include mobile {
+    &--grid-mobile.section--mode-recent .section__row[data-row="recent"],
+    &--grid-mobile.section--mode-favourite .section__row[data-row="favourite"] {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(2, auto);
+      grid-auto-columns: calc(48% - 4px);
+      gap: 8px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 8px;
+
+      > .card {
+        width: 100%;
+        scroll-snap-align: start;
+      }
+    }
+
+    &--grid-mobile.section--expanded.section--mode-recent
+      .section__row[data-row="recent"],
+    &--grid-mobile.section--expanded.section--mode-favourite
+      .section__row[data-row="favourite"] {
+      grid-template-rows: repeat(4, auto);
+      grid-auto-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-flow: row;
+      overflow-x: visible;
+      scroll-snap-type: none;
+
+      > .card {
+        scroll-snap-align: none;
+      }
+    }
+  }
+
+  &__row {
+    display: none;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+    scroll-padding-left: 16px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > * {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+    }
+
+    @include mobile {
+      margin: 0 -16px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+}
+
+.tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  &__btn {
+    padding: 8px 17px;
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    background: transparent;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast),
+      transform var(--transition-fast);
+    transform-origin: center;
+
+    &:hover {
+      border-color: var(--color-accent);
+    }
+
+    &.is-active {
+      padding: 8px 27px;
+      border-color: var(--color-accent);
+    }
+
+    @include focus-ring;
+  }
+}

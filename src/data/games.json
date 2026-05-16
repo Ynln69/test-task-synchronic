@@ -1,12 +1,214 @@
 {
+  "games": [
+    {
+      "id": "miss-cherry-fruits",
+      "title": "Miss Cherry Fruits",
+      "provider": "Parrot`s Gold",
+      "image": "images/miss-cherry-fruits.jpg"
+    },
+    {
+      "id": "parrots-gold",
+      "title": "Parrot`s Gold",
+      "provider": "Parrot`s Gold",
+      "image": "images/parrots-gold.jpg"
+    },
+    {
+      "id": "duel-of-dawn",
+      "title": "Duel of Dawn",
+      "provider": "Parrot`s Gold",
+      "image": "images/duel-of-dawn.jpg"
+    },
+    {
+      "id": "mechanical-clover",
+      "title": "Mechanical Clover",
+      "provider": "Parrot`s Gold",
+      "image": "images/mechanical-clover.jpg"
+    },
+    {
+      "id": "wild-cash",
+      "title": "Wild Cash x9990",
+      "provider": "Parrot`s Gold",
+      "image": "images/wild-cash.jpg"
+    },
+    {
+      "id": "alien-fruits",
+      "title": "Alien Fruits x8000",
+      "provider": "Parrot`s Gold",
+      "image": "images/alien-fruits.jpg"
+    },
+    {
+      "id": "sweet-rush",
+      "title": "Sweet Rush Megaways",
+      "provider": "Parrot`s Gold",
+      "image": "images/sweet-rush.jpg"
+    },
+    {
+      "id": "dice-bonanza",
+      "title": "Dice Bonanza",
+      "provider": "Parrot`s Gold",
+      "image": "images/dice-bonanza.jpg"
+    },
+    {
+      "id": "money-tree",
+      "title": "Money Tree",
+      "provider": "Parrot`s Gold",
+      "image": "images/money-tree.jpg"
+    },
+    {
+      "id": "lucky-blue",
+      "title": "Lucky Blue",
+      "provider": "Parrot`s Gold",
+      "image": "images/lucky-blue.jpg"
+    },
+    {
+      "id": "candy-monsta",
+      "title": "Candy Monsta",
+      "provider": "Parrot`s Gold",
+      "image": "images/candy-monsta.jpg"
+    },
+    {
+      "id": "luck-magic",
+      "title": "Luck & Magic",
+      "provider": "Parrot`s Gold",
+      "image": "images/luck-magic.jpg"
+    },
+    {
+      "id": "hottest-666",
+      "title": "Hottest 666",
+      "provider": "Parrot`s Gold",
+      "image": "images/hottest-666.jpg"
+    },
+    {
+      "id": "rich-piggies",
+      "title": "Rich Piggies 2",
+      "provider": "Parrot`s Gold",
+      "image": "images/rich-piggies.jpg"
+    }
+  ],
+  "sections": {
+    "first": {
+      "recent": [
+        "miss-cherry-fruits",
+        "parrots-gold",
+        "duel-of-dawn",
+        "mechanical-clover",
+        "wild-cash",
+        "luck-magic",
+        "hottest-666",
+        "rich-piggies"
+      ],
+      "favourite": [
+        "luck-magic",
+        "hottest-666",
+        "rich-piggies",
+        "dice-bonanza",
+        "money-tree",
+        "miss-cherry-fruits",
+        "parrots-gold",
+        "wild-cash"
+      ]
+    },
+    "top": {
+      "recent": [
+        "alien-fruits",
+        "parrots-gold",
+        "sweet-rush",
+        "dice-bonanza",
+        "money-tree",
+        "wild-cash",
+        "mechanical-clover",
+        "miss-cherry-fruits"
+      ],
+      "favourite": [
+        "money-tree",
+        "dice-bonanza",
+        "alien-fruits",
+        "sweet-rush",
+        "miss-cherry-fruits",
+        "parrots-gold",
+        "wild-cash",
+        "mechanical-clover"
+      ]
+    },
+    "mini": {
+      "recent": [
+        "lucky-blue",
+        "candy-monsta",
+        "luck-magic",
+        "hottest-666",
+        "rich-piggies",
+        "alien-fruits",
+        "sweet-rush",
+        "duel-of-dawn"
+      ],
+      "favourite": [
+        "hottest-666",
+        "rich-piggies",
+        "candy-monsta",
+        "lucky-blue",
+        "luck-magic",
+        "duel-of-dawn",
+        "sweet-rush",
+        "alien-fruits"
+      ]
+    }
+  },
   "winners": [
-    { "id": "w1", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" },
-    { "id": "w2", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" },
-    { "id": "w3", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" },
-    { "id": "w4", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" },
-    { "id": "w5", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" },
-    { "id": "w6", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" },
-    { "id": "w7", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" },
-    { "id": "w8", "title": "Game name", "amount": 400, "user": "User***-", "image": "images/winner-1.jpg" }
+    {
+      "id": "w1",
+      "title": "Game name",
+      "amount": 400,
+      "user": "User***-",
+      "image": "images/winner-1.jpg"
+    },
+    {
+      "id": "w2",
+      "title": "Game name",
+      "amount": 400,
+      "user": "User***-",
+      "image": "images/winner-1.jpg"
+    },
+    {
+      "id": "w3",
+      "title": "Game name",
+      "amount": 400,
+      "user": "User***-",
+      "image": "images/winner-1.jpg"
+    },
+    {
+      "id": "w4",
+      "title": "Game name",
+      "amount": 400,
+      "user": "User***-",
+      "image": "images/winner-1.jpg"
+    },
+    {
+      "id": "w5",
+      "title": "Game name",
+      "amount": 400,
+      "user": "User***-",
+      "image": "images/winner-1.jpg"
+    },
+    {
+      "id": "w6",
+      "title": "Game name",
+      "amount": 400,
+      "user": "User***-",
+      "image": "images/winner-1.jpg"
+    },
+    {
+      "id": "w7",
+      "title": "Game name",
+      "amount": 400,
+      "user": "User***-",
+      "image": "images/winner-1.jpg"
+    },
+    {
+      "id": "w8",
+      "title": "Game name",
+      "amount": 400,
+      "user": "User***-",
+      "image": "images/winner-1.jpg"
+    }
   ]
 }
