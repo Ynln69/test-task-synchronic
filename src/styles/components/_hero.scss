@@ -1,0 +1,21 @@
+@use '../abstracts/mixins' as *;
+
+.hero {
+  margin-bottom: 24px;
+
+  picture,
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    @include mobile {
+      max-width: var(--hero-max-width-mob);
+      margin-inline: auto;
+    }
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+}
